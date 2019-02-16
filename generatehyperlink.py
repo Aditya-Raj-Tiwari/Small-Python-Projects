@@ -5,6 +5,6 @@ f = open('GeratedLink.txt','w')
 requestObj = requests.get('https://techlekh.com/')
 soup = BeautifulSoup(requestObj.text,'html.parser')
 
-anchortags = soup.find_all('a')
+anchortags = soup.find_all('a',href = True)
 for a in anchortags:
-    f.write(a.text + '\n')
+    f.write(str(a['href']) + '\n')
